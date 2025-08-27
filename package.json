@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "news-service": "vite",
+    "dev:single-spa": "concurrently \"vite preview\" \"vite build --watch\"",
     "B&R news-service": "vite build && vite preview --port 5176 --strictPort",
     "build": "tsc -b && vite build",
     "serve": "vite preview --port 5176 --strictPort",
@@ -12,22 +13,25 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "19.1.1",
-    "react-dom": "19.1.1"
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "single-spa": "6.0.1",
+    "single-spa-react": "^6.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
-    "@module-federation/vite": "^1.7.1",
     "@originjs/vite-plugin-federation": "^1.4.1",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
+    "concurrently": "^9.2.1",
     "eslint": "^9.33.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.1",
-    "vite": "^7.1.2"
+    "vite": "^7.1.2",
+    "vite-plugin-single-spa": "^1.1.0"
   }
 }

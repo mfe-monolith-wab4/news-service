@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
-
+import React from "react";
 
 export default function App() {
     type NewsItem = { id: number; title: string };
-    const [items, setItems] = useState<NewsItem[]>([]);
+    const [items, setItems] = React.useState<NewsItem[]>([]);
 
-    useEffect(() => {
-        // Optional: hol dir Daten vom Mock-Backend (Hono) – sonst Demo‑Daten
+    React.useEffect(() => {
         fetch('http://localhost:3000/api/news')
             .then(r => r.ok ? r.json() : [])
             .then(setItems)
@@ -14,13 +12,10 @@ export default function App() {
     }, []);
 
     return (
-        <div style={{ padding: 12, border: '1px solid #eee', borderRadius: 12 }}>
-            <h3>News Service</h3>
-            <ul>
+        <div>
+            <ul className="clean">
                 {items.map(n => <li key={n.id}>{n.title}</li>)}
             </ul>
         </div>
     );
 }
-
-
