@@ -5,7 +5,7 @@ export default function App() {
     const [items, setItems] = React.useState<NewsItem[]>([]);
 
     React.useEffect(() => {
-        fetch('http://localhost:3000/api/news')
+        fetch('https://bff.wab4.jf-homelab.de/api/news')
             .then(r => r.ok ? r.json() : [])
             .then(setItems)
             .catch(() => setItems([{ id: 1, title: 'Demo News (fallback)' }]));
